@@ -1,0 +1,215 @@
+@import url('https://fonts.cdnfonts.com/css/overused-grotesk');
+
+:root {
+    font-family: 'Overused Grotesk', sans-serif;
+    font-size: 18px;
+    --_container-color: #fffbed;
+    --_box-shadow: 0 0 15px -3px #919191;
+    --_circle-color-1: #f8e6ff;
+    --_circle-color-2: #e8cef3;
+    --_circle-color-3: #e4baf3;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container-main {
+    background-image: linear-gradient(120deg, #d5b5e1, #ea9fef);
+    height: 100dvh;
+    overflow: hidden;
+    position: relative;
+}
+
+.circle {
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.5s;
+    position: absolute;
+}
+
+#circle-1 {
+    background-color: var(--_circle-color-1);
+    box-shadow: 0 0 15px 25px var(--_circle-color-1);
+    width: 500px;
+    height: 500px;
+    top: 40%;
+    left: 17%;
+    animation: 
+    fade_circle_1 60s linear infinite,
+    fade_in 1.5s linear var(--_delay-circle);
+}
+
+#circle-2 {
+    background-color: var(--_circle-color-2);
+    box-shadow: 0 0 15px 25px var(--_circle-color-2);
+    width: 400px;
+    height: 400px;
+    top: 67%;
+    left: 25%;
+    animation: fade_circle_2 60s linear infinite,
+    fade_in 1.5s linear var(--_delay-circle);
+}
+
+#circle-3 {
+    background-color: var(--_circle-color-3);
+    box-shadow: 0 0 15px 25px var(--_circle-color3-);
+    width: 400px;
+    height: 400px;
+    top: 50%;
+    left: 34%;
+    animation: fade_circle_3 60s linear infinite,
+    fade_in 1.5s linear var(--_delay-circle);
+}
+
+.container-title_screen {
+    display: flex;
+    height: 100%;
+}
+
+section {
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.container-title {
+    flex-direction: column;
+    justify-content: center;
+    overflow-y: hidden;
+    position: relative;
+}
+
+.container-title>.title {
+    cursor: default;
+    font-size: 5rem;
+    position: relative;
+}
+
+.container-title>.title::after {
+    content: 'by poufs';
+    color: var(--_container-color);
+    font-size: 0.8rem;
+    font-weight: bold;
+    opacity: 0;
+    width: max-content;
+    transition: 0.3s;
+    position: absolute;
+    bottom: 7%;
+    right: 0;
+    animation: slide_in_left 1s 0.7s linear forwards;
+}
+
+.container-title>.title>span {
+    transition: 0.5s;
+}
+
+.container-title>.title>span:hover {
+    color: var(--_container-color);
+    font-size: 4.7rem;
+}
+
+.container-title>button {
+    border: 2px solid transparent;
+    border-radius: 7px;
+    box-shadow: var(--_box-shadow);
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 7px 23px;
+    transition: 0.3s;
+}
+
+.container-title>button:hover {
+    transform: scale(1.05);
+}
+
+.container-title>button:active {
+    background-color: transparent;
+    border: 2px solid var(--_container-color);
+    color: var(--_container-color);
+    transform: scale(0.95);
+}
+
+.container-player_section {
+    gap: 24px;
+    transition: 0.7s;
+    display: flex;
+    position: relative;
+}
+
+.container-player_section>.card-player {
+    --_border-radius: 23px;
+    background-color: var(--_container-color);
+    border-radius: var(--_border-radius);
+    box-shadow: var(--_box-shadow);
+    padding-bottom: 37px;
+    width: 340px;
+    height: 200px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 15px;
+    opacity: 0;
+    position: relative;
+    transition: 0.7s;
+}
+
+.container-player_section>.card-player:hover {
+    padding-bottom: 60px;
+    height: 215px;
+}
+
+.container-player_section>.card-player:hover>img {
+    top: -10%;
+}
+
+.active {
+    padding-bottom: 45px !important;
+    height: 215px !important;
+}
+
+.card-player>img {
+    border-radius: var(--_border-radius);
+    box-shadow: var(--_box-shadow);
+    object-fit: cover;
+    width: 220px;
+    height: 220px;
+    transform: translate(-50%, -50%);
+    transition: 0.7s;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+}
+
+.card-player>.container-player {
+    position: relative;
+}
+
+.container-player>.label-player {
+    color: #616161;
+    cursor: text;
+    font-size: 1.2rem;
+    font-weight: bold;
+    width: max-content;
+    transform: translateX(-50%);
+    position: absolute;
+    top: 87%;
+    left: 50%;
+}
+
+.container-player>.input-player {
+    background-color: transparent;
+    border: none;
+    border-radius: 13px;
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 7px;
+    width: 100%;
+    outline: none;
+}
+
+.container-player>.input-player:focus::placeholder {
+    opacity: 0;
+}

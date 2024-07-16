@@ -138,4 +138,5 @@ function Game() {
     console.log(showBoard[0]); console.log(showBoard[1]); console.log(showBoard[2]);
 };
 
-Game();
+// Game();
+// No global variables

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/title_screen.css">
+    <link rel="stylesheet" href="styles/animation_components.css">
+    <title>Tic-Tac-Toe on JavaScript</title>
+</head>
+
+<body>
+    <div class="container-main">
+        <div class="container-circle fade-in">
+            <div class="circle" id="circle-2" style="--_delay-circle: 2.4s"></div>
+            <div class="circle" id="circle-3" style="--_delay-circle: 1.8s"></div>
+            <div class="circle" id="circle-1" style="--_delay-circle: 1.2s"></div>
+        </div>
+        <div class="container-title_screen">
+            <section class="container-title">
+                <p class="title slide-in_left"><span id="tic">tic</span><span id="tac">tac</span><span
+                        id="toe">toe</span>
+                </p>
+                <button type="button" class="start-game zoom-out">START</button>
+            </section>
+            <section class="container-player_section">
+                <div class="card-player slide-in_right" id="card" style="--_delay: 1.1s">
+                    <img src="src/paintjupiter.png" alt="" id="profile" class="container-profile_picture">
+                    <div class="container-player">
+                        <label for="player1" class="label-player">X</label>
+                        <input type="text" placeholder="Enter username" name="username" id="player1"
+                            class="input-player">
+                    </div>
+                </div>
+                <div class="card-player slide-in_right" id="card" style="--_delay: 0.8s">
+                    <img src="src/paintbluered.png" alt="" id="profile" class="container-profile_picture">
+                    <div class="container-player">
+                        <label for="player2" class="label-player">O</label>
+                        <input type="text" placeholder="Enter username" name="username" id="player2"
+                            class="input-player">
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>
