@@ -29,11 +29,11 @@
     }
 }
 
-.zoom-out {
-    animation: zoom_out 1.2s ease-in-out 1.7s;
+.slide-in_up {
+    animation: slide_in_up 1.2s ease-in-out 1.7s;
 }
 
-@keyframes zoom_out {
+@keyframes slide_in_up {
     0% {
         transform: translateY(100%);
         opacity: 0;
@@ -44,60 +44,32 @@
     }
 }
 
-@keyframes fade_circle_1 {
-    0%, 100% {
-        background-color: var(--_circle-color-1);
-        box-shadow: 0 0 15px 5px var(--_circle-color-1);
-    }
-    30% {
-        background-color: var(--_circle-color-2);
-        box-shadow: 0 0 15px 5px var(--_circle-color-2);
-    }
-    60% {
-        background-color: var(--_circle-color-3);
-        box-shadow: 0 0 15px 5px var(--_circle-color-3);
-    }
-    90% {
-        background-color: var(--_circle-color-1);
-        box-shadow: 0 0 15px 5px var(--_circle-color-1);
-    }
+.zoom-in-pop {
+    animation: zoom_in-pop 1s linear forwards;
+    animation-delay: var(--_delay-start);
 }
 
-@keyframes fade_circle_2 {
-    0%, 100% {
-        background-color: var(--_circle-color-2);
-        box-shadow: 0 0 15px 5px var(--_circle-color-2);
+@keyframes zoom_in-pop {
+    0% {
+        transform: scale(1);
+    }
+    0%, 72% {
+        opacity: 1;
+    }
+    15% {
+        transform: scale(1.11);
     }
     30% {
-        background-color: var(--_circle-color-3);
-        box-shadow: 0 0 15px 5px var(--_circle-color-3);
+        transform: scale(1.17);
     }
-    60% {
-        background-color: var(--_circle-color-1);
-        box-shadow: 0 0 15px 5px var(--_circle-color1);
+    73% {
+        opacity: 1;
     }
-    90% {
-        background-color: var(--_circle-color-2);
-        box-shadow: 0 0 15px 5px var(--_circle-color-2);
+    75% {
+        opacity: 0;
     }
-}
-
-@keyframes fade_circle_3 {
-    0%, 100% {
-        background-color: var(--_circle-color-3);
-        box-shadow: 0 0 15px 5px var(--_circle-color-3);
-    }
-    30% {
-        background-color: var(--_circle-color-1);
-        box-shadow: 0 0 15px 5px var(--_circle-color-1);
-    }
-    60% {
-        background-color: var(--_circle-color-2);
-        box-shadow: 0 0 15px 5px var(--_circle-color-2);
-    }
-    90% {
-        background-color: var(--_circle-color-3);
-        box-shadow: 0 0 15px 5px var(--_circle-color-3);
+    73%, 100% {
+        transform: scale(0);
     }
 }
 
@@ -106,18 +78,6 @@
         opacity: 0;
     }
     100% {
-        opacity: 1;
+        opacity: 0.8;
     }
-}
-
-.w-100 {
-    width: 100% !important;
-}
-
-.d-none {
-    display: none !important;
-}
-
-.opacity-0 {
-    opacity: 0;
 }
