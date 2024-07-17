@@ -1,0 +1,101 @@
+.container-ttt {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    align-items: center;
+    justify-content: center;
+}
+
+.round {
+    color: #FFFAF1;
+    text-align: center;
+}
+
+.container-part {
+    display: flex;
+    gap: 13px
+}
+
+.container-left {
+    --_gap: 5px;
+    --_border-radius: 13px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.container-left>.container-board {
+    border-radius: var(--_border-radius);
+    width: 275px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--_gap);
+}
+
+.container-left>.container-board>.tile {
+    background-color: #FFFAF1;
+    border: none;
+    border-radius: var(--_border-radius);
+    aspect-ratio: 1;
+    cursor: pointer;
+    font-size: 1.5rem;
+    width: calc(calc(100% / 3) - var(--_gap));
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+}
+
+.container-left>.container-back_reset {
+    display: flex;
+    gap: var(--_gap);
+    justify-content: space-between;
+}
+
+.container-left>.container-back_reset>button {
+    background-color: #FFFAF1;
+    border: none;
+    font-size: 1.1rem;
+    border-radius: var(--_border-radius);
+    cursor: pointer;
+    height: 50px;
+    transition: 0.1s;
+}
+
+.container-left :is(.tile, button) {
+    box-shadow: 0 0 15px -5px #000;
+    font-weight: bold;
+}
+
+.container-left :is(.tile, button):hover {
+    background-color: #fddbff;
+    transform: scale(1.03);
+}
+
+.container-left :is(.tile, button):active {
+    background-color: #d1a3d9;
+    box-shadow: none;
+    transform: scale(0.92);
+}
+
+.container-left>.container-back_reset>.back {
+    width: calc(calc(100% / 3) - var(--_gap));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-left>.container-back_reset>.reset {
+    width: calc(calc(100% / 3 * 2) - var(--_gap) / 2);
+}
+
+.container-right>.container-player_status_card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 13px;
+}

@@ -132,7 +132,7 @@ section {
     top: -10% !important;
 }
 
-.card-player>img {
+.container-player_section>.card-player>img {
     border-radius: var(--_border-radius);
     box-shadow: var(--_box-shadow);
     object-fit: cover;
@@ -145,11 +145,11 @@ section {
     left: 50%;
 }
 
-.card-player>.container-player {
+.container-player_section .container-player {
     position: relative;
 }
 
-.container-player>.label-player {
+.container-player_section .container-player>.label-player {
     color: #616161;
     cursor: text;
     font-size: 1.2rem;
@@ -161,7 +161,7 @@ section {
     left: 50%;
 }
 
-.container-player>.input-player {
+.container-player_section .container-player>.input-player {
     background-color: transparent;
     border: none;
     border-radius: 13px;
@@ -172,6 +172,6 @@ section {
     outline: none;
 }
 
-.container-player>.input-player:focus::placeholder {
+.container-player_section .container-player>.input-player:focus::placeholder {
     opacity: 0;
 }

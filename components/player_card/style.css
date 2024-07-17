@@ -1,0 +1,123 @@
+@import url('https://fonts.cdnfonts.com/css/overused-grotesk');
+
+:root {
+    font-family: 'Overused Grotesk', sans-serif;
+    font-size: 18px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #70468d;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-player {
+    --_border: 2px solid #FFFAF1;
+    border-radius: 13px;
+    box-shadow: 0 0 15px -5px #000;
+    height: 155px;
+    width: 145px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-player>.container-profile {
+    border: var(--_border);
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-player>.container-profile>.img-player {
+    object-fit: cover;
+    width: 100%;
+}
+
+.card-player>.container-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.card-player>.container-status>div:not(.wrapper-message) {
+    color: #FFFAF1;
+    font-weight: bold;
+    padding: 5px;
+    text-align: center;
+    width: calc(100% / 3);
+    z-index: 1;
+}
+
+.victory_count {
+    background-color: #64e061;
+    border-left: var(--_border);
+    border-bottom: var(--_border);
+    border-bottom-left-radius: 13px;
+}
+
+.marker {
+    background-color: #1c1e21;
+    border-bottom: var(--_border);
+    flex-grow: 1;
+}
+
+.defeat_count {
+    background-color: #e06161;
+    border-bottom: var(--_border);
+    border-right: var(--_border);
+    border-bottom-right-radius: 13px;
+}
+
+.card-player .wrapper-message {
+    --_triangle_width: 11px;
+    background-color: #1c1e21;
+    border-radius: 5px;
+    transform: translateX(-50%);
+    padding: 4px 9px;
+    display: none;
+    opacity: 0;
+    position: absolute;
+    bottom: calc(100% + var(--_triangle_width));
+    transition: 0.3s, display 0.3s;
+    transition-behavior: allow-discrete;
+}
+
+.card-player>.container-status:has(div:not(:last-of-type):hover) .wrapper-message {
+    display: block;
+    opacity: 1;
+    
+    @starting-style {
+        opacity: 0;
+    }
+}
+
+.card-player .container-message {
+    position: relative;
+}
+
+.card-player .container-message::after {
+    content: '';
+    border-top: var(--_triangle_width) solid #1c1e21;
+    border-left: var(--_triangle_width) solid transparent;
+    border-bottom: var(--_triangle_width) solid transparent;
+    border-right: var(--_triangle_width) solid transparent;
+    transform: translateX(-50%);
+    position: absolute;
+    top: 100%;
+    left: 50%
+}
+
+.card-player .container-message>.message {
+    color: #FFFAF1
+}
