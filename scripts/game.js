@@ -1,16 +1,28 @@
-function Player(playername, marker) {
-    let score = 0;
+function Player(playername, marker, card) {
+    let victory = 0;
+    let defeat = 0;
 
+    const getPlayerCard = () => card;
     const getUsername = () => playername;
     const getMarker = () => marker;
-    const getScore = () => score;
-    const addScore = () => ++score;
+    const getVictory = () => victory;
+    const getDefeat = () => defeat;
+    const addVictory = () => ++victory;
+    const addDefeat = () => ++defeat;
+    const resetStatus = () => {
+        victory = 0;
+        defeat = 0
+    };
 
     return {
+        getPlayerCard,
         getUsername,
         getMarker,
-        getScore,
-        addScore
+        getVictory,
+        getDefeat,
+        addVictory,
+        addDefeat,
+        resetStatus
     };
 };
 
@@ -151,8 +163,8 @@ function Game() {
     const player2 = startInterface.getPlayer2();
 
     // Initialization of player cards
-    const card1 = gameInterface.getPlayerCard()[0];
-    const card2 = gameInterface.getPlayerCard()[1];
+    const card1 = player1.getPlayerCard();
+    const card2 = player2.getPlayerCard();
     
     // Initialization of current player
     let currentPlayer = player1;

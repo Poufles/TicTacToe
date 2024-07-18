@@ -144,6 +144,7 @@
     transition: 0.5s;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .container-player_status_card>.card-player>.container-profile {
@@ -257,6 +258,36 @@
 
 .container-player_status_card>.card-player .container-message>.message {
     color: #FFFAF1
+}
+
+.container-player_status_card>.card-player .notification-status {
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.container-player_status_card>.card-player .notification-status>.container-status {
+    background-color: var(--_status);
+    box-shadow: 0 0 15px -3px #919191;
+    border-radius: 13px;
+    color: #FFFAF1;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 3px 15px;
+    position: relative;
+}
+
+.container-player_status_card>.card-player .notification-status>.container-status::after {
+    content: '';
+    border-top: 13px solid var(--_status);
+    border-right: 13px solid transparent;
+    border-bottom: 13px solid transparent;
+    border-left: 13px solid transparent;
+    transform: translateX(-50%);
+    position: absolute;
+    top: 100%;
+    left: 50%;
 }
 
 .container-player_status_card>.card-player.active {

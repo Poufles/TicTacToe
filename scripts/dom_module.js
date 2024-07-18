@@ -164,8 +164,11 @@ const startInterface = function () {
         input1 = input1.value !== '' ? input1.value : 'Player 1';
         input2 = input2.value !== '' ? input2.value : 'Player 2';
 
-        player1 = Player(input1, 'X');
-        player2 = Player(input2, 'O');
+        playerCard1 = gameInterface.getPlayerCard(0);
+        playerCard2 = gameInterface.getPlayerCard(1);
+
+        player1 = Player(input1, 'X', playerCard1);
+        player2 = Player(input2, 'O', playerCard2);
 
         el_playerCard.forEach(card => {
             card.classList.add('zoom-in-pop');
@@ -205,12 +208,10 @@ const startInterface = function () {
         Game();
     });
 
-    const getStartEl = () => el_playerCard;
     const getPlayer1 = () => player1;
     const getPlayer2 = () => player2;
 
     return {
-        getStartEl,
         getPlayer1,
         getPlayer2
     }
@@ -233,7 +234,7 @@ const gameInterface = function () {
     });
 
     const getTile = () => tiles;
-    const getPlayerCard = () => cards;
+    const getPlayerCard = (index) => cards[index];
     const nextRound = () => {
         ++round;
         el_round.textContent = `Round ${round}`;
