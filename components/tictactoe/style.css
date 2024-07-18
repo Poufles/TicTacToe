@@ -62,7 +62,7 @@
     border-radius: var(--_border-radius);
     cursor: pointer;
     height: 50px;
-    transition: 0.1s;
+    transition: 0.2s;
 }
 
 .container-left :is(.tile, button) {

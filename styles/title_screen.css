@@ -123,7 +123,7 @@ section {
     top: -10%;
 }
 
-.active {
+.container-player_section>.card-player.active {
     padding-bottom: 60px !important;
     height: 215px !important;
 }

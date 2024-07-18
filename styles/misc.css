@@ -11,5 +11,25 @@
 }
 
 .opacity-1 {
-    opacity: 1;
+    opacity: 1 !important;
+}
+
+.initial-box {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+.border-top-left-radius {
+    border-radius: 13px 0 0 0 !important;
+}
+.border-top-right-radius {
+    border-radius: 0 13px 0 0 !important;
+}
+.border-bottom-left-radius {
+    border-radius: 0 0 0 13px !important;
+
+}
+.border-bottom-right-radius {
+    border-radius: 0 0 13px 0 !important;
+
 }

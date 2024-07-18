@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="styles/title_screen.css">
     <link rel="stylesheet" href="styles/animation_components.css">
     <link rel="stylesheet" href="styles/misc.css">
+    <link rel="stylesheet" href="styles/game.css">
+    <link rel="stylesheet" href="styles/responsive.css">
     <script src="scripts/dom_module.js" defer></script>
     <script src="scripts/game.js" defer></script>
     <title>Tic-Tac-Toe on JavaScript</title>
@@ -15,13 +17,13 @@
 <body>
     <div class="container-main">
         <div class="container-title_screen">
-            <section class="container-title d-none">
+            <section class="container-title">
                 <p class="title slide-in_left"><span id="tic">tic</span><span id="tac">tac</span><span
                         id="toe">toe</span>
                 </p>
                 <button type="button" class="start-game opacity-0">START</button>
             </section>
-            <section class="container-player_section d-none">
+            <section class="container-player_section">
                 <div class="card-player opacity-0" id="card-1" style="--_delay: 1.1s; --_delay-start: 0s">
                     <img src="src/paintjupiter.png" alt="" id="profile" class="container-profile_picture">
                     <div class="container-player">
@@ -41,8 +43,75 @@
             </section>
         </div>
 
-        <div class="container-game_screen">
-            
+        <div class="container-game_screen d-none">
+            <h1 class="round d-none" style="--_delay-start: 0s">Round 1</h1>
+            <div class="container-part">
+                <div class="container-left">
+                    <div class="container-board">
+                        <button class="tile d-none" id="tile-1"></button>
+                        <button class="tile d-none" id="tile-2"></button>
+                        <button class="tile d-none" id="tile-3"></button>
+                        <button class="tile d-none" id="tile-4"></button>
+                        <button class="tile d-none" id="tile-5"></button>
+                        <button class="tile d-none" id="tile-6"></button>
+                        <button class="tile d-none" id="tile-7"></button>
+                        <button class="tile d-none" id="tile-8"></button>
+                        <button class="tile d-none" id="tile-9"></button>
+                    </div>
+                    <div class="container-back_reset">
+                        <button class="back d-none">
+                            <?xml version="1.0" ?><svg fill="none" height="24" viewBox="0 0 24 24" width="24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M16 4H19C20.1046 4 21 4.89543 21 6V7M16 20H19C20.1046 20 21 19.1046 21 18V17M4.4253 19.4276L10.4253 21.2276C11.7085 21.6126 13 20.6517 13 19.3119V4.68806C13 3.34834 11.7085 2.38744 10.4253 2.77241L4.4253 4.57241C3.57934 4.8262 3 5.60484 3 6.48806V17.5119C3 18.3952 3.57934 19.1738 4.4253 19.4276Z"
+                                    stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                <path d="M9.001 12H9" stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" />
+                                <path d="M16 12H21M21 12L19 10M21 12L19 14" stroke="black" stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="2" />
+                            </svg>
+                        </button>
+                        <button class="reset d-none">Reset</button>
+                    </div>
+                </div>
+                <div class="container-right">
+                    <div class="container-player_status_card">
+                        <div class="card-player d-none" id="player1">
+                            <div class="container-profile">
+                                <img src="src/paintjupiter.png" class="img-player" alt="" id="img-player1">
+                                <div class="player"></div>
+                            </div>
+                            <div class="container-status">
+                                <div class="victory_count">1</div>
+                                <div class="marker">X</div>
+                                <div class="defeat_count">0</div>
+                                <div class="wrapper-message">
+                                    <div class="container-message">
+                                        <p class="message">'Message'</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-player d-none" id="player2">
+                            <div class="container-profile">
+                                <img src="src/paintbluered.png" class="img-player" alt="" id="img-player1">
+                                <div class="player"></div>
+                            </div>
+                            <div class="container-status">
+                                <div class="victory_count">1</div>
+                                <div class="marker">X</div>
+                                <div class="defeat_count">0</div>
+                                <div class="wrapper-message">
+                                    <div class="container-message">
+                                        <p class="message">'Message'</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="overlay d-none"></div>
         </div>
     </div>
 </body>

@@ -72,6 +72,26 @@
         transform: scale(0);
     }
 }
+.zoom-out_pop {
+    animation: zoom_out-pop 0.4s linear;
+    animation-delay: var(--_delay-start);
+}
+
+@keyframes zoom_out-pop {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    70%, 80% {
+        transform: scale(1.06);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
 
 @keyframes fade_in {
     0% {
