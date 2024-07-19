@@ -111,6 +111,7 @@
 
 .container-game_screen {
     height: 100%;
+    transition: opacity 0.5s;
     display: flex;
     flex-direction: column;
     gap: 19px;

@@ -30,7 +30,7 @@
 }
 
 .slide-in_up {
-    animation: slide_in_up 1.2s ease-in-out 1.7s;
+    animation: slide_in_up 1s ease-in-out;
 }
 
 @keyframes slide_in_up {

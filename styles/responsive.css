@@ -1,4 +1,103 @@
+@media screen and (max-width: 1500px) {
+    section:not(:last-of-type) {
+        width: 70%;
+    }
+
+    section:last-of-type {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    section:not(:last-of-type) {
+        width: 60%;
+    }
+
+    section:last-of-type {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .container-title_screen {
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .container-title {
+        height: 50%;
+    }
+
+    .container-player_section {
+        height: 50%;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .container-title {
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .container-player_section>.card-player {
+        padding-bottom: 37px;
+        width: 220px;
+        height: 150px;
+    }
+
+    .container-player_section>.card-player:hover {
+        padding-bottom: 40px;
+        height: 155px;
+    }
+
+    .container-player_section>.card-player>img {
+        width: 150px;
+        height: 150px;
+    }
+}
+
 @media screen and (max-width: 550px) {
+    .container-title {
+        height: 45%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container-player_section {
+        height: 55%;
+    }
+
+    .container-title>.title {
+        font-size: 4.1rem;
+    }
+
+    .container-player_section>.card-player {
+        width: 220px;
+        height: 125px;
+    }
+
+    .container-player_section>.card-player:hover {
+        padding-bottom: 45px;
+        height: 135px;
+    }
+
+    .container-player_section>.card-player>img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .container-player_section {
+        gap: 60px;
+        justify-content: flex-start;
+    }
+
+    .container-player_section {
+        flex-direction: column;
+    }
+
     .container-part {
         flex-direction: column;
     }

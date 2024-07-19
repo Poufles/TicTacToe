@@ -37,7 +37,6 @@ section {
 .container-title {
     flex-direction: column;
     justify-content: center;
-    overflow-y: hidden;
     position: relative;
 }
 
@@ -53,7 +52,6 @@ section {
     font-size: 0.8rem;
     font-weight: bold;
     opacity: 0;
-    width: max-content;
     transition: 0.3s;
     position: absolute;
     bottom: 7%;
@@ -99,6 +97,7 @@ section {
 }
 
 .container-player_section>.card-player {
+    border: 1px solid red;
     --_border-radius: 23px;
     background-color: var(--_container-color);
     border-radius: var(--_border-radius);
