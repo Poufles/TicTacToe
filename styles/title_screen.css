@@ -69,6 +69,7 @@ section {
 }
 
 .container-title>button {
+    background-color: var(--_container-color);
     border: 2px solid transparent;
     border-radius: 7px;
     box-shadow: var(--_box-shadow);

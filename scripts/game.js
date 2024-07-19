@@ -44,7 +44,11 @@ const gameboard = function () {
     };
 
     const getBoard = () => board;
-    const resetBoard = () => board = [];
+    const resetBoard = () => {
+        for (let iter = 0; iter < 3; ++iter) {
+            board.shift();
+        }
+    };
 
     const addMarkOnBoard = (marker, tile) => {
         tile.textContent = marker;
@@ -216,7 +220,6 @@ function Game() {
             
             tile.addEventListener('mouseup', () => {
                 if (validateTile(tile)) {
-                    console.log('Marked');
                     return;
                 };
 
@@ -262,5 +265,8 @@ function Game() {
         setTimeout(() => {
             animationLoad.loadStartScreen();
         }, 3500);
+        // Reinitialize visuals
+        gameInterface.resetGameInterface();
+        gameboard.resetBoard();
     });
 };

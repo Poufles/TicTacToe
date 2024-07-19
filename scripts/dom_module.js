@@ -29,20 +29,11 @@ const startInterface = function () {
         input1 = input1.value !== '' ? input1.value : 'Player 1';
         input2 = input2.value !== '' ? input2.value : 'Player 2';
 
-        console.log(input1);
-        console.log(input2);
-
         const playerCard1 = gameInterface.getPlayerCard(0);
         const playerCard2 = gameInterface.getPlayerCard(1);
 
-        console.log(playerCard1);
-        console.log(playerCard2);
-
         player1 = Player(input1, 'X', playerCard1);
         player2 = Player(input2, 'O', playerCard2);
-
-        console.log(player1);
-        console.log(player2);
 
         animationLoad.unloadStartScreen();
         setTimeout(() => {
@@ -310,13 +301,6 @@ const animationLoad = function () {
             el_startButton.classList.remove('zoom-in-pop');
             el_startButton.classList.add('d-none');
         }, 1900);
-
-        // el_startContainer.forEach(container => {
-        //     setTimeout(() => {
-        //         container.classList.add('d-none');
-        //     }, 2000);
-        // });
-
         setTimeout(() => {
             el_titleScreen.classList.add('d-none');
         }, 2000);
