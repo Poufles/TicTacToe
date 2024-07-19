@@ -223,14 +223,21 @@ function Game() {
                 gameboard.addMarkOnBoard(marker, tile);
                 tile.classList.add('active');
                 if (validateWinPattern(board, marker)) {
-                    console.log('WIN');
                     winner = getWinner(currentPlayer);
-                    gameInterface.nextRound();
+                    const loser = currentPlayer === player1 ? player2 : player1;
+                    currentPlayer.addVictory();
+                    loser.addDefeat();
+                    gameInterface.nextRound(currentPlayer, loser);
+                    setTimeout(() => {
+                        currentPlayer = player1;
+                        marker = currentPlayer.getMarker();
+                        changeCard(card1, card2);
+                    }, 4300);
                     return;
                 };
 
                 if (isDraw(board)) {
-                    console.log('Draw');
+                    gameInterface.nextRound();
                     return;
                 };
 
@@ -241,8 +248,11 @@ function Game() {
 
     const el_resetButton = document.querySelector('button.reset');
     el_resetButton.addEventListener('mouseup', () => {
+        // Reinitialize visuals
         gameInterface.resetGameInterface();
         // Reinitialization current player and marker
+        player1.resetStatus();
+        player2.resetStatus();
         currentPlayer = player1;
         marker = currentPlayer.getMarker();
         changeCard(card1, card2);

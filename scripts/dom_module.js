@@ -1,4 +1,5 @@
 function onLoad() {
+    const el_overlay = document.querySelector('.overlay')
     const el_playerCard = document.querySelectorAll('.card-player');
     const el_startButton = document.querySelector('.start-game');
     const el_statusVictory = document.querySelectorAll('.container-status>.victory_count');
@@ -7,6 +8,11 @@ function onLoad() {
     const wrapper_message = document.querySelectorAll('.wrapper-message');
 
     window.addEventListener('load', () => {
+        el_overlay.classList.remove('d-none');
+        setTimeout(() => {
+            el_overlay.classList.add('d-none');
+        }, 3300);
+
         el_playerCard.forEach(card => {
             setTimeout(() => {
                 card.classList.add('slide-in_right');
@@ -164,8 +170,8 @@ const startInterface = function () {
         input1 = input1.value !== '' ? input1.value : 'Player 1';
         input2 = input2.value !== '' ? input2.value : 'Player 2';
 
-        playerCard1 = gameInterface.getPlayerCard(0);
-        playerCard2 = gameInterface.getPlayerCard(1);
+        const playerCard1 = gameInterface.getPlayerCard(0);
+        const playerCard2 = gameInterface.getPlayerCard(1);
 
         player1 = Player(input1, 'X', playerCard1);
         player2 = Player(input2, 'O', playerCard2);
@@ -218,6 +224,7 @@ const startInterface = function () {
 }();
 
 const gameInterface = function () {
+    const el_overlay = document.querySelector('.overlay');
     const el_tile = document.querySelectorAll('.tile');
     const el_playerCard = document.querySelectorAll('.container-player_status_card>.card-player')
     const el_round = document.querySelector('.round');
@@ -228,24 +235,111 @@ const gameInterface = function () {
     el_tile.forEach(tile => {
         tiles.push(tile);
     });
-    
+
     el_playerCard.forEach(card => {
         cards.push(card);
     });
 
     const getTile = () => tiles;
     const getPlayerCard = (index) => cards[index];
-    const nextRound = () => {
-        ++round;
-        el_round.textContent = `Round ${round}`;
-        el_tile.forEach(tile => {
-            tile.classList.remove('active');
-            tile.textContent = '';
-        });
+    const nextRound = (winner = null, loser = null) => {
+        el_overlay.classList.remove('d-none')
+        if (winner !== null) {
+            const winnerCard = winner.getPlayerCard();
+            const loserCard = loser.getPlayerCard();
+
+            const notif_winner = winnerCard.querySelector('.notification-status');
+            const notif_winnerStatus = winnerCard.querySelector('.victory_count');
+            notif_winnerStatus.textContent = winner.getVictory();
+            notif_winner.classList.remove('d-none');
+            notif_winner.classList.add('jump-pop');
+            setTimeout(() => {
+                notif_winner.classList.remove('jump-pop');
+                notif_winner.classList.add('opacity-0');
+                setTimeout(() => {
+                    notif_winner.classList.remove('opacity-0');
+                    notif_winner.classList.add('d-none');
+                }, 1000);
+            }, 3000);
+
+            const notif_loser = loserCard.querySelector('.notification-status');
+            const notif_defeatStatus = loserCard.querySelector('.defeat_count');
+            notif_defeatStatus.textContent = loser.getDefeat();
+            notif_loser.classList.remove('d-none');
+            notif_loser.classList.add('jump-pop');
+            notif_loser.setAttribute('style', '--_status: #aa0e0e');
+            const message = notif_loser.querySelector('.container-status');
+            message.textContent = 'Loser !';
+            setTimeout(() => {
+                notif_loser.classList.remove('jump-pop');
+                notif_loser.classList.add('opacity-0');
+                setTimeout(() => {
+                    notif_loser.classList.remove('opacity-0');
+                    notif_loser.classList.add('d-none');
+                    notif_loser.setAttribute('style', '--_status: #04ff00');
+                    message.textContent = 'Winner !';
+                }, 1000);
+            }, 3000);
+        } else {
+            for (playerCard of cards) {
+                const notif = playerCard.querySelector('.notification-status');
+                notif.setAttribute('style', '--_status: #CACACA');
+                notif.classList.remove('d-none');
+                notif.querySelector('.container-status').textContent = 'DRAW !';
+                notif.classList.add('jump-pop');
+                setTimeout(() => {
+                    notif.classList.remove('jump-pop');
+                    notif.classList.add('opacity-0');
+                    setTimeout(() => {
+                        notif.classList.remove('opacity-0');
+                        notif.classList.add('d-none');
+                        notif.setAttribute('style', '--_status: #04ff00');
+                        notif.querySelector('.container-status').textContent = "Winner !"
+                    }, 1000);
+                }, 3000);
+            };
+        }
+
+        setTimeout(() => {
+            el_round.classList.add('scale-pop');
+            el_round.classList.add('z-1');
+            setTimeout(() => {
+                ++round;
+                el_round.textContent = `Round ${round}`;
+            }, 700);
+            setTimeout(() => {
+                el_round.classList.remove('scale-pop');
+            }, 1200);
+            setTimeout(() => {
+                el_round.classList.remove('z-1');
+            }, 1500);
+        }, 3500);
+
+        setTimeout(() => {
+            el_tile.forEach(tile => {
+                tile.classList.remove('active');
+                tile.textContent = '';
+                el_overlay.classList.add('d-none');
+            });
+        }, 4400);
     };
+    
     const resetGameInterface = () => {
-        round = 1;
-        el_round.textContent = `Round ${round}`;
+        if (round > 1) {
+            round = 1;
+            el_round.textContent = `Round ${round}`;
+            el_round.classList.add('scale-pop');
+            el_round.classList.add('z-1');
+            setTimeout(() => {
+                el_round.textContent = `Round ${round}`;
+            }, 700);
+            setTimeout(() => {
+                el_round.classList.remove('scale-pop');
+            }, 1200);
+            setTimeout(() => {
+                el_round.classList.remove('z-1');
+            }, 1500);
+        };
 
         el_tile.forEach(tile => {
             tile.classList.remove('active');

@@ -13,6 +13,7 @@
     cursor: default;
     text-align: center;
     padding: 3px 17px;
+    transition: 0.5s;
 }
 
 .container-part {
@@ -190,7 +191,6 @@
     padding: 5px;
     text-align: center;
     width: calc(100% / 3);
-    z-index: 1;
 }
 
 .container-status>* {
@@ -261,9 +261,10 @@
 }
 
 .container-player_status_card>.card-player .notification-status {
-    transform: translate(-50%, -50%);
+    transition: 0.5s;
+    transform: translateX(-50%);
     position: absolute;
-    top: 50%;
+    bottom: calc(100% + 14px);
     left: 50%;
 }
 
@@ -275,6 +276,7 @@
     font-size: 1.1rem;
     font-weight: bold;
     padding: 3px 15px;
+    width: max-content;
     position: relative;
 }
 

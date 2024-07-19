@@ -10,13 +10,28 @@
     opacity: 0;
 }
 
+.opacity-half {
+    opacity: 0.5;
+}
+
 .opacity-1 {
-    opacity: 1 !important;
+    opacity: 1;
 }
 
 .initial-box {
     border-radius: 0 !important;
     box-shadow: none !important;
+}
+
+.scale-pop {
+    background-color: #FFFAF1 !important;
+    box-shadow: 0 0 15px -3px #000;
+    color: #000 !important;
+    transform: scale(1.15) translateY(160%);
+}
+
+.z-1 {
+    z-index: 1;
 }
 
 .border-top-left-radius {

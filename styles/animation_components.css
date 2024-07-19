@@ -101,3 +101,25 @@
         opacity: 0.8;
     }
 }
+
+.jump-pop {
+    animation: jump_pop 2s ease-out;
+}
+
+@keyframes jump_pop {
+    0%, 60%, 80%, 100% {
+        bottom: calc(100% + 14px);
+    }
+    10% {
+        bottom: calc(120% + 14px);
+    }
+    50%,53% {
+        bottom: calc(130% + 14px);
+    }
+    70%,73% {
+        bottom: calc(107% + 14px);
+    }
+    90%, 93% {
+        bottom: calc(103% + 14px);
+    }
+}
