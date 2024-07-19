@@ -121,7 +121,7 @@ function Game() {
                 if (patternCount == 3) return true;
             };
         };
-        
+
         patternCount = 0;
         // Diagonal Right to Left
         for (let i = 1; i <= length; ++i) {
@@ -161,7 +161,7 @@ function Game() {
     // Initialization of gameboard
     gameboard.createBoard();
     let board = gameboard.getBoard();
-    
+
     // Initialization of players
     const player1 = startInterface.getPlayer1()
     const player2 = startInterface.getPlayer2();
@@ -169,13 +169,13 @@ function Game() {
     // Initialization of player cards
     const card1 = player1.getPlayerCard();
     const card2 = player2.getPlayerCard();
-    
+
     // Initialization of current player
     let currentPlayer = player1;
 
     // Initialization of marker of the current player
     let marker = currentPlayer.getMarker();
-    
+
     // Adding username to player cards
     card1.querySelector('.player').textContent = player1.getUsername();
     card2.querySelector('.player').textContent = player2.getUsername();
@@ -188,11 +188,7 @@ function Game() {
         visually provide hint who is the first to play.
     */
     setTimeout(() => {
-        card1.classList.add('active');
-        card1.querySelector('.container-profile').classList.add('active');
-        card1.querySelector('.victory_count').classList.add('active');
-        card1.querySelector('.marker').classList.add('active');
-        card1.querySelector('.defeat_count').classList.add('active');
+        changeCard(card1, card2);
     }, 4000);
 
     /*
@@ -202,7 +198,6 @@ function Game() {
     for (let iter = 0; iter < board.length; ++iter) {
         for (let jiter = 0; jiter < board.length; ++jiter) {
             let tile = board[iter][jiter];
-
             tile.addEventListener('mouseover', () => {
                 tile.classList.add('hover');
             });
@@ -219,6 +214,7 @@ function Game() {
             });
             
             tile.addEventListener('mouseup', () => {
+                console.log(currentPlayer.getUsername());
                 if (validateTile(tile)) {
                     return;
                 };
@@ -267,6 +263,7 @@ function Game() {
         }, 3500);
         // Reinitialize visuals
         gameInterface.resetGameInterface();
+        gameInterface.removeTiles();
         gameboard.resetBoard();
     });
 };

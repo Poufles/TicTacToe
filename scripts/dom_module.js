@@ -36,6 +36,7 @@ const startInterface = function () {
         player2 = Player(input2, 'O', playerCard2);
 
         animationLoad.unloadStartScreen();
+        gameInterface.createTiles();
         setTimeout(() => {
             animationLoad.loadGameScreen()
         }, 2000);
@@ -54,22 +55,37 @@ const startInterface = function () {
 
 const gameInterface = function () {
     const el_overlay = document.querySelector('.overlay');
-    const el_tile = document.querySelectorAll('.tile');
+    const board = document.querySelector('.container-board');
     const el_playerCard = document.querySelectorAll('.container-player_status_card>.card-player')
     const el_round = document.querySelector('.round');
     const tiles = [];
     const cards = [];
     let round = 1;
 
-    el_tile.forEach(tile => {
-        tiles.push(tile);
-    });
-
     el_playerCard.forEach(card => {
         cards.push(card);
     });
 
 
+    const createTiles = () => {
+        for (let iter = 0; iter < 9; ++iter) {
+            const tile = document.createElement('button');
+            tile.classList.add('tile');
+            tile.classList.add('d-none');
+            tile.setAttribute('id', `tile-${iter + 1}`);
+            board.appendChild(tile);
+            tiles.push(tile);
+        }
+    };
+    const removeTiles = () => {
+        const el_tile = board.querySelectorAll('.tile');
+        el_tile.forEach(tile => {
+            setTimeout(() => {
+                board.removeChild(tile);
+                tiles.splice(0);
+            }, 4000);
+        });
+    };
     const getTile = () => tiles;
     const getPlayerCard = (index) => cards[index];
     const nextRound = (winner = null, loser = null) => {
@@ -146,6 +162,7 @@ const gameInterface = function () {
         }, 3500);
 
         setTimeout(() => {
+            const el_tile = board.querySelectorAll('.tile');
             el_tile.forEach(tile => {
                 tile.classList.remove('active');
                 tile.textContent = '';
@@ -171,6 +188,7 @@ const gameInterface = function () {
             }, 1500);
         };
 
+        const el_tile = board.querySelectorAll('.tile');
         el_tile.forEach(tile => {
             tile.classList.remove('active');
             tile.textContent = '';
@@ -180,12 +198,20 @@ const gameInterface = function () {
             const victory = card.querySelector('.victory_count');
             const defeat = card.querySelector('.defeat_count');
 
+            card.classList.remove('active');
+            card.querySelector('.container-profile').classList.remove('active');
+            card.querySelector('.victory_count').classList.remove('active');
+            card.querySelector('.marker').classList.remove('active');
+            card.querySelector('.defeat_count').classList.remove('active');
+
             victory.textContent = '0';
             defeat.textContent = '0';
         });
     };
 
     return {
+        createTiles,
+        removeTiles,
         getTile,
         getPlayerCard,
         nextRound,
@@ -274,7 +300,6 @@ const animationLoad = function () {
     }
 
     const unloadStartScreen = () => {
-        // const el_startContainer = document.querySelectorAll('.container-title_screen>section')
         const el_playerCard = document.querySelectorAll('.container-player_section>.card-player');
 
         el_overlay.classList.remove('d-none');
