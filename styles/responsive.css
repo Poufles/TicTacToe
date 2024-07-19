@@ -53,6 +53,11 @@
         height: 155px;
     }
 
+    .container-player_section>.card-player.active {
+        padding-bottom: 40px !important;
+        height: 155px !important;
+    }
+
     .container-player_section>.card-player>img {
         width: 150px;
         height: 150px;
@@ -80,8 +85,13 @@
     }
 
     .container-player_section>.card-player:hover {
-        padding-bottom: 45px;
-        height: 135px;
+        padding-bottom: 50px;
+        height: 150px;
+    }
+
+    .container-player_section>.card-player.active {
+        padding-bottom: 45px !important;
+        height: 150px !important;
     }
 
     .container-player_section>.card-player>img {

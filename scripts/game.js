@@ -229,9 +229,7 @@ function Game() {
                     loser.addDefeat();
                     gameInterface.nextRound(currentPlayer, loser);
                     setTimeout(() => {
-                        currentPlayer = player1;
-                        marker = currentPlayer.getMarker();
-                        changeCard(card1, card2);
+                        changePlayer();
                     }, 4300);
                     return;
                 };
