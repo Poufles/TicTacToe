@@ -234,6 +234,9 @@ function Game() {
 
                 if (isDraw(board)) {
                     gameInterface.nextRound();
+                    setTimeout(() => {
+                        changePlayer();
+                    }, 4300);
                     return;
                 };
 
