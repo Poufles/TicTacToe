@@ -306,6 +306,9 @@ const animationLoad = function () {
         el_playerCard.forEach(card => {
             card.classList.add('zoom-in-pop');
             setTimeout(() => {
+                card.querySelector('input').value = '';
+                card.classList.remove('active');
+                card.querySelector('img').classList.remove('img-active');
                 card.classList.remove('zoom-in-pop');
                 card.classList.add('d-none');
             }, 2000);

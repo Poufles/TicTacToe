@@ -214,7 +214,6 @@ function Game() {
             });
             
             tile.addEventListener('mouseup', () => {
-                console.log(currentPlayer.getUsername());
                 if (validateTile(tile)) {
                     return;
                 };
