@@ -10,7 +10,7 @@
     --_circle-color-3: #e4baf3;
 }
 
-* {
+*:not(dialog) {
     box-sizing: border-box;
     margin: 0;
     padding: 0;

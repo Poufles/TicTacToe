@@ -264,8 +264,7 @@ const animationLoad = function () {
     });
 
     const loadStartScreen = () => {
-        el_titleScreen.classList.remove('d-none')
-        el_overlay.classList.remove('d-none');
+        el_titleScreen.classList.remove('d-none');
         el_title.classList.remove('d-none');
 
         setTimeout(() => {
@@ -416,7 +415,9 @@ const animationLoad = function () {
         const el_resetButton = document.querySelector('.container-back_reset .reset');
         const el_playerCard1 = document.querySelector('.container-player_status_card #player1');
         const el_playerCard2 = document.querySelector('.container-player_status_card #player2');
+        const el_overlay = document.querySelector('.overlay');
 
+        el_overlay.classList.remove('d-none');
         el_playerCard2.classList.add('zoom-in-pop');
         setTimeout(() => {
             el_playerCard2.classList.remove('zoom-in-pop');

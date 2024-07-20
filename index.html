@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="styles/misc.css">
     <link rel="stylesheet" href="styles/game.css">
     <link rel="stylesheet" href="styles/responsive.css">
+    <link rel="stylesheet" href="styles/prompt.css">
     <script src="scripts/dom_module.js" defer></script>
     <script src="scripts/game.js" defer></script>
     <title>Tic-Tac-Toe on JavaScript</title>
@@ -113,7 +114,19 @@
                 </div>
             </div>
         </div>
-        <div class="overlay d-none"></div>
+        
+        <dialog class="container">
+            <div class="prompt">
+                <p class="message">
+                    This is a message
+                </p>
+                <section class="container-button_option">
+                    <button class="confirm">Yes</button>
+                    <button class="cancel">No</button>
+                </section>
+            </div>
+        </dialog>
+        <div class="overlay"></div>
     </div>
 </body>
 

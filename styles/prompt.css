@@ -1,0 +1,87 @@
+
+dialog {
+    background-color: transparent;
+    border: 0;
+    opacity: 0;
+    transition: display 0.3s, opacity 0.3s;
+    transition-behavior: allow-discrete;
+}
+
+dialog[open] {
+    opacity: 1;
+
+    @starting-style {
+        opacity: 0;
+    }
+}
+
+dialog::backdrop {
+    backdrop-filter: blur(2px);
+}
+
+dialog .prompt {
+    background-color: #FFFAF1;
+    box-shadow: 0 0 15px -5px #000;
+    border-radius: 7px;
+    color: #000;
+    padding: 23px 25px;
+    transition: 0.3s;
+    display: flex;
+    gap: 13px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+dialog .prompt .message {
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+dialog .container-button_option {
+    display: flex;
+    gap: 13px;
+    align-items: center;
+    justify-content: center;
+}
+
+dialog button {
+    background-color: #000;
+    border: 0;
+    border-radius: 5px;
+    color: #FFFAF1;
+    cursor: pointer;
+    padding: 7px 17px;
+    transition: 0.3s;
+}
+
+dialog button:hover {
+    background-color: #FFFAF1;
+    color: #000;
+    transform: scale(1.1);
+}
+
+dialog button:active {
+    transform: scale(0.9);
+}
+
+dialog:has(button:active) button:not(:hover) {
+    transform: scale(1);
+}
+
+dialog:has(button:hover) button:not(:hover) {
+    opacity: 0.7;
+    transform: scale(0.90);
+}
+
+dialog .prompt:has(button.confirm:hover) {
+    background-color: #54c134;
+}
+
+dialog .prompt:has(button.cancel:hover) {
+    background-color: #e06161;
+}
+
+dialog .prompt:has(button:hover) .message {
+    color: #FFFAF1;
+}

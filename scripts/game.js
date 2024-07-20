@@ -201,18 +201,18 @@ function Game() {
             tile.addEventListener('mouseover', () => {
                 tile.classList.add('hover');
             });
-            
+
             tile.addEventListener('mousedown', () => {
                 tile.classList.add('active')
             });
-            
+
             tile.addEventListener('mouseleave', () => {
                 if (tile.textContent === '') {
                     tile.classList.remove('active');
                 };
                 tile.classList.remove('hover');
             });
-            
+
             tile.addEventListener('mouseup', () => {
                 if (validateTile(tile)) {
                     return;
@@ -244,25 +244,67 @@ function Game() {
 
     const el_resetButton = document.querySelector('button.reset');
     el_resetButton.addEventListener('mouseup', () => {
-        // Reinitialize visuals
-        gameInterface.resetGameInterface();
-        // Reinitialization current player and marker
-        player1.resetStatus();
-        player2.resetStatus();
-        currentPlayer = player1;
-        marker = currentPlayer.getMarker();
-        changeCard(card1, card2);
+        const el_dialog = document.querySelector('dialog');
+        const el_confirm = el_dialog.querySelector('button.confirm');
+        const el_cancel = el_dialog.querySelector('button.cancel');
+        const el_message = el_dialog.querySelector('p.message');
+
+        const cancel = () => {
+            el_dialog.close();
+            el_confirm.removeEventListener('mouseup', confirm);
+            el_cancel.removeEventListener('mouseup', cancel);
+        };
+
+        const confirm = () => {
+            el_dialog.close();
+            // Reinitialize visuals
+            gameInterface.resetGameInterface();
+            // Reinitialization current player and marker
+            player1.resetStatus();
+            player2.resetStatus();
+            currentPlayer = player1;
+            marker = currentPlayer.getMarker();
+            changeCard(card1, card2);
+            el_confirm.removeEventListener('mouseup', confirm);
+            el_cancel.removeEventListener('mouseup', cancel);
+        };
+
+        el_message.textContent = 'Reset Game ?';
+        el_dialog.showModal();
+        el_confirm.addEventListener('mouseup', confirm);
+        el_cancel.addEventListener('mouseup', cancel);
     });
 
     const el_backButton = document.querySelector('button.back');
     el_backButton.addEventListener('mouseup', () => {
-        animationLoad.unloadGameScreen();
-        setTimeout(() => {
-            animationLoad.loadStartScreen();
-        }, 3500);
-        // Reinitialize visuals
-        gameInterface.resetGameInterface();
-        gameInterface.removeTiles();
-        gameboard.resetBoard();
+        const el_dialog = document.querySelector('dialog');
+        const el_confirm = el_dialog.querySelector('button.confirm');
+        const el_cancel = el_dialog.querySelector('button.cancel');
+        const el_message = el_dialog.querySelector('.message');
+
+        const cancel = () => {
+            el_dialog.close();
+            el_confirm.removeEventListener('mouseup', confirm);
+            el_cancel.removeEventListener('mouseup', cancel);
+        };
+
+        const confirm = () => {
+            el_dialog.close();
+            animationLoad.unloadGameScreen();
+            setTimeout(() => {
+                animationLoad.loadStartScreen();
+            }, 3500);
+            // Reinitialize visuals
+            gameInterface.resetGameInterface();
+            gameInterface.removeTiles();
+            gameboard.resetBoard();
+            el_confirm.removeEventListener('mouseup', confirm);
+            el_cancel.removeEventListener('mouseup', cancel);
+        };
+
+        el_message.textContent = 'Quit Game ?';
+        el_dialog.showModal();
+        el_confirm.addEventListener('mouseup', confirm);
+        el_cancel.addEventListener('mouseup', cancel);
     });
 };
