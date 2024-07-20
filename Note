@@ -1,0 +1,1 @@
+There is an evident error when the web application is run, which is found when the game is quit. This is due to the spaghetti code I did and I who is trying to apply new knowledge: factory functions and IIFE. I probably can fix that bug and make the whole logic more optimized. However, I will simply apply this lesson to future projects and make them better than this one.
